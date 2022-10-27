@@ -75,8 +75,8 @@ if (isset($_POST['submit1'])) {
     unset($_SESSION['korpa'][$index2]);
     $_SESSION['korpa'] = array_values($_SESSION['korpa']);
 
-    echo $index2 . "<br>";
-    print_r($_SESSION['korpa']);
+    // echo $index2 . "<br>";
+    // print_r($_SESSION['korpa']);
 }
 
 // delete item by id
@@ -89,8 +89,8 @@ if (isset($_POST['submitID'])) {
     }
     $_SESSION['korpa'] = array_values($_SESSION['korpa']);
 
-    echo $id2 . "<br>";
-    print_r($_SESSION['korpa']);
+    // echo $id2 . "<br>";
+    // print_r($_SESSION['korpa']);
 }
 
 
