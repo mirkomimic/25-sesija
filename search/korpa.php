@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="search/style.css">
     <title>Korpa</title>
 </head>
 
@@ -38,11 +39,7 @@
                     </td>
                     <td>
                         <form action="" method="POST">
-                            <input type="text" name="index" value="
-                            <?php 
-                            echo $index;
-                            $index++;
-                            ?>">
+                            <input type="text" name="index" value="<?php echo $index; $index++; ?>">
                             <input type="submit" name="submit1" value="Remove Item ">
                         </form>
                     </td>
@@ -51,9 +48,9 @@
         </tbody>
         <tfoot>
           <td colspan="2">Ukupno: <?= $komada; ?></td>
-          <td colspan="2"><?= $ukupnoKorpa; ?></td>
+          <td colspan="3"><?= $ukupnoKorpa; ?></td>
         </tfoot>
-    </table>
+    </table><br>
     <form action="" method="POST">
         <input type="submit" name="submit" value="remove">
     </form>
