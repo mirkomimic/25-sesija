@@ -64,11 +64,43 @@ if (isset($_POST['submit']) && $_POST['submit'] == "Add") {
 // DELETE KORPA 
 if (isset($_POST['submit']) && $_POST['submit'] == "remove") {
     $_SESSION['korpa'] = array();
-    header("Location: prodavnica.php");
+    header("Location: prodavnica.php?vidi_korpu");
     exit();
 }
 
-// dugme obrisi za svaki proizvod
+
+// delete item by index
+if (isset($_POST['submit1'])) {
+    $index2 = intval($_POST['index']);
+    unset($_SESSION['korpa'][$index2]);
+    $_SESSION['korpa'] = array_values($_SESSION['korpa']);
+
+    echo $index2 . "<br>";
+    print_r($_SESSION['korpa']);
+}
+
+// delete item by id
+if (isset($_POST['submitID'])) {
+    $id2 = intval($_POST['id2']);
+    foreach ($_SESSION['korpa'] as $key => $value) {
+        if ($value == $id2) {
+            unset($_SESSION['korpa'][$key]);
+        }
+    }
+    $_SESSION['korpa'] = array_values($_SESSION['korpa']);
+
+    echo $id2 . "<br>";
+    print_r($_SESSION['korpa']);
+}
+
+
+// logout
+if (isset($_POST['logout'])) {
+    $_SESSION['korpa'] = [];
+    session_destroy();
+    header("Location: index.php");
+}
+
 
 if (isset($_GET['vidi_korpu'])) {
     $korpa = array();
@@ -78,7 +110,9 @@ if (isset($_GET['vidi_korpu'])) {
         foreach($niz_proizvoda as $pr) {
             if ($pr['id'] == $id) {
                 $korpa[] = $pr;
-                $komada += 1; // komada moze i ++$komada
+                
+
+                $komada += 1; // moze i ++$komada
                 $ukupnoKorpa += $pr['price']; // ukupno iznos
             }
         }

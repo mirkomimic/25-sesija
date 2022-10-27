@@ -48,8 +48,11 @@
         <input type="text" name="low-price" id="low-price" placeholder="Lowest: ">
         <input type="text" name="high-price" id="high-price" placeholder="Highest: ">
         <br><input type="submit" name="reset" id="reset" value="Reset search">
-        <input type="submit" value="Search" name="search">
+        <input type="submit" value="Search" name="search"><br>
 
+    </form>
+    <form action="" method="post">
+        <input type="submit" value="Logout" name="logout">
     </form>
 
 </body>

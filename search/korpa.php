@@ -11,17 +11,19 @@
 <body>
 
     <h3>Proizvodi u korpi</h3>
-    <table border="1">
+    <table border="1" cellspacing="0" cellpadding="2px">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
                 <th>Price</th>
-                <th>Add to cart</th>
+                <th>Remove by id</th>
+                <th>Remove by index</th>
             </tr>
         </thead>
         <tbody>
             <?php
+            $index = 0;
             foreach ($korpa as $pr) :
             ?>
                 <tr>
@@ -30,14 +32,18 @@
                     <td><?php echo $pr['price']; ?></td>
                     <td>
                         <form action="" method="post">
-                            <input type="hidden" name="id" value="<?php echo $pr['id']; ?>">
-                            <input type="submit" name="submit" value="Add">
+                            <input type="hidden" name="id2" value="<?php echo $pr['id']; ?>">
+                            <input type="submit" name="submitID" value="Remove">
                         </form>
                     </td>
                     <td>
                         <form action="" method="POST">
-                            <input type="hidden" name="id" value="<?php echo $pr['id']; ?>">
-                            <input type="submit" name="submit" value="remove1">
+                            <input type="text" name="index" value="
+                            <?php 
+                            echo $index;
+                            $index++;
+                            ?>">
+                            <input type="submit" name="submit1" value="Remove Item ">
                         </form>
                     </td>
                 </tr>
@@ -51,5 +57,6 @@
     <form action="" method="POST">
         <input type="submit" name="submit" value="remove">
     </form>
+    <a href="prodavnica.php"><--Back</a>
 </body>
 </html>
